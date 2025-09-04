@@ -22,6 +22,11 @@ Thomas Alexander Galdamez Palomares 20230441
 - react-native-screens: Optimización de pantallas
 - react-native-safe-area-context: Manejo de áreas seguras
 - react-native-vector-icons: Iconos vectoriales
+npm install @react-navigation/native @react-navigation/stack
+# For React Native CLI
+npm install react-native-screens react-native-safe-area-context
+# Additional dependencies for stack navigator
+npm install react-native-gesture-handler react-native-reanimated
 ##  Instalación y Ejecución
 1. Clona el repositorio
 2. Ejecuta npm install
