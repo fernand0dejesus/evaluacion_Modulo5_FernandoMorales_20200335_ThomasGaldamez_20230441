@@ -15,6 +15,7 @@ Thomas Alexander Galdamez Palomares 20230441
 -  Edición de perfil
 -  Almacenamiento en Firestore
 ##  Dependencias Utilizadas
+npm install @react-native-async-storage/async-storage
 - expo: Framework para desarrollo móvil
 - firebase: SDK de Firebase para autenticación y base de datos
 - @react-navigation/native: Navegación entre pantallas
