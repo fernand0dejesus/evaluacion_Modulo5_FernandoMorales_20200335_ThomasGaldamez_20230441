@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  View,
   Text,
   TextInput,
   TouchableOpacity,
@@ -37,7 +36,7 @@ const EditProfileScreen = ({ navigation }) => {
         });
       }
     } catch (error) {
-      Alert.alert('Error', 'No se pudo cargar la información');
+      Alert.alert('Error', 'No se pudo cargar la información del usuario');
     }
   };
 
@@ -73,32 +72,32 @@ const EditProfileScreen = ({ navigation }) => {
         style={styles.input}
         placeholder="Nombre completo"
         value={formData.nombre}
-        onChangeText={(text) => setFormData({...formData, nombre: text})}
+        onChangeText={(text) => setFormData({ ...formData, nombre: text })}
       />
-      
+
       <TextInput
         style={[styles.input, styles.disabledInput]}
         placeholder="Correo electrónico"
         value={formData.email}
         editable={false}
       />
-      
+
       <TextInput
         style={styles.input}
         placeholder="Título universitario"
         value={formData.tituloUniversitario}
-        onChangeText={(text) => setFormData({...formData, tituloUniversitario: text})}
+        onChangeText={(text) => setFormData({ ...formData, tituloUniversitario: text })}
       />
-      
+
       <TextInput
         style={styles.input}
         placeholder="Año de graduación"
         value={formData.anoGraduacion}
-        onChangeText={(text) => setFormData({...formData, anoGraduacion: text})}
+        onChangeText={(text) => setFormData({ ...formData, anoGraduacion: text })}
         keyboardType="numeric"
       />
-      
-      <TouchableOpacity 
+
+      <TouchableOpacity
         style={[styles.button, loading && styles.buttonDisabled]}
         onPress={handleUpdate}
         disabled={loading}
@@ -107,8 +106,8 @@ const EditProfileScreen = ({ navigation }) => {
           {loading ? 'Actualizando...' : 'Actualizar Información'}
         </Text>
       </TouchableOpacity>
-      
-      <TouchableOpacity 
+
+      <TouchableOpacity
         style={[styles.button, styles.cancelButton]}
         onPress={() => navigation.goBack()}
       >
@@ -129,8 +128,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 30,
-    color: '#333',
     marginTop: 20,
+    color: '#333',
   },
   input: {
     backgroundColor: 'white',
