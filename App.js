@@ -9,8 +9,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import SplashScreen from "./screens/SplashScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-import HomeScreen from "./screens/HomeScreen";
-import EditProfileScreen from "./screens/EditProfileScreen";
+import MainStack from "./components/MainStack"; // 👈 Importamos nuestro stack con menú
 
 const Stack = createStackNavigator();
 
@@ -29,44 +28,15 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: { backgroundColor: "#4A90E2" },
-            headerTintColor: "#fff",
-            headerTitleStyle: { fontWeight: "bold" },
-          }}
-        >
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           {isLoading ? (
-            <Stack.Screen
-              name="Splash"
-              component={SplashScreen}
-              options={{ headerShown: false }}
-            />
+            <Stack.Screen name="Splash" component={SplashScreen} />
           ) : user ? (
-            <>
-              <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{ title: "Inicio", headerLeft: null }}
-              />
-              <Stack.Screen
-                name="EditProfile"
-                component={EditProfileScreen}
-                options={{ title: "Editar Perfil" }}
-              />
-            </>
+            <Stack.Screen name="Main" component={MainStack} />
           ) : (
             <>
-              <Stack.Screen
-                name="Login"
-                component={LoginScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="Register"
-                component={RegisterScreen}
-                options={{ title: "Registro" }}
-              />
+              <Stack.Screen name="Login" component={LoginScreen} />
+              <Stack.Screen name="Register" component={RegisterScreen} />
             </>
           )}
         </Stack.Navigator>
